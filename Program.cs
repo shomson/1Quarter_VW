@@ -9,24 +9,30 @@ using static System.Console;
 
 Clear();
 
+string[] NewArray(string[] inArray, int size)
+{
+    int count = 0;
+    for (int i = 0; i < inArray.Length; i++)
+    {
+        if (inArray[i].Length <= size)
+        {
+            count++;
+        }
+    }
+
+    string[] result = new string[count];
+    count = 0;
+    for (int i = 0; i < inArray.Length; i++)
+    {
+        if (inArray[i].Length <= size)
+        {
+            result[count] = inArray[i];
+            count++;
+        }
+    }
+    return result;
+}
+
 string[] array = {"Hello", "2", "world", ":-)", "1234", "1567", "-2", "computer science", "Russia", "Denmark", "Kazan"};
 
-int count = 0;
-for (int i = 0; i < inArray.Length; i++)
-{
-    if (inArray[i].Length <= 3)
-    {
-        count++;
-    }
-}
-
-string[] result = new string[count];
-count = 0;
-for (int i = 0; i < inArray.Length; i++)
-{
-    if (inArray[i].Length <= 3)
-    {
-        result[count] = inArray[i];
-        count++;
-    }
-}
+WriteLine($"[{String.Join(" | ", NewArray(array, 3))}]");
