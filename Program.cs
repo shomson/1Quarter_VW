@@ -19,3 +19,14 @@ for (int i = 0; i < inArray.Length; i++)
         count++;
     }
 }
+
+string[] result = new string[count];
+count = 0;
+for (int i = 0; i < inArray.Length; i++)
+{
+    if (inArray[i].Length <= 3)
+    {
+        result[count] = inArray[i];
+        count++;
+    }
+}
